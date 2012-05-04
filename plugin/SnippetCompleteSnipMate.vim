@@ -17,7 +17,7 @@ if exists('g:loaded_SnippetCompleteSnipMate') || (v:version < 700)
 endif
 let g:loaded_SnippetCompleteSnipMate = 1
 
-if ! exists('g:SnippetComplete_Registry')
+if ! exists('g:SnippetComplete_RegisteredTypes')
     " Apparently, the SnippetComplete plugin isn't installed or active.
     finish
 endif
@@ -25,7 +25,7 @@ endif
 let s:save_cpo = &cpo
 set cpo&vim
 
-let g:SnippetComplete_Registry['snipMate'] = {
+let g:SnippetComplete_RegisteredTypes['snipMate'] = {
 \   'priority': 100,
 \   'pattern': '\S\+',
 \   'generator': function('SnippetCompleteSnipMate#Generator')
