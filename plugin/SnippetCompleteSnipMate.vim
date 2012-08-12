@@ -1,5 +1,5 @@
-" SnippetCompleteSnipMate.vim: Integration snipMate snippets into
-" SnippetComplete plugin.
+" SnippetCompleteSnipMate.vim: Integrate snipMate snippets into SnippetComplete
+" plugin.
 "
 " DEPENDENCIES:
 "
@@ -9,6 +9,10 @@
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
 "
 " REVISION	DATE		REMARKS
+"	002	05-May-2012	Separate type definition into
+"				g:SnippetComplete_SnipMateTypes and define
+"				separate completion mapping for snipMate
+"				snippets only.
 "	001	04-May-2012	file creation
 
 " Avoid installing twice or when in unsupported Vim version.
@@ -25,11 +29,24 @@ endif
 let s:save_cpo = &cpo
 set cpo&vim
 
-let g:SnippetComplete_RegisteredTypes['snipMate'] = {
-\   'priority': 100,
-\   'pattern': '\S\+',
-\   'generator': function('SnippetCompleteSnipMate#Generator')
+"- integration -----------------------------------------------------------------
+
+let g:SnippetComplete_SnipMateTypes = {
+\   'snipMate': {
+\       'priority': 100,
+\       'pattern': '\S\+',
+\       'generator': function('SnippetCompleteSnipMate#Generator')
+\   }
 \}
+call extend(g:SnippetComplete_RegisteredTypes, g:SnippetComplete_SnipMateTypes)
+
+
+"- mappings --------------------------------------------------------------------
+
+inoremap <silent> <Plug>(SnippetCompleteSnipMate) <C-r>=SnippetComplete#PreSnippetCompleteExpr()<CR><C-r>=SnippetComplete#SnippetComplete(g:SnippetComplete_SnipMateTypes)<CR>
+if ! hasmapto('<Plug>(SnippetCompleteSnipMate)', 'i')
+    imap <C-x>% <Plug>(SnippetCompleteSnipMate)
+endif
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
