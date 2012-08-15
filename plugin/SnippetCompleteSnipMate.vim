@@ -2,6 +2,8 @@
 " plugin.
 "
 " DEPENDENCIES:
+"   - SnippetComplete plugin
+"   - SnippetCompleteSnipMate.vim autoload script
 "
 " Copyright: (C) 2012 Ingo Karkat
 "   The VIM LICENSE applies to this script; see ':help copyright'.
@@ -9,6 +11,8 @@
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
 "
 " REVISION	DATE		REMARKS
+"	003	13-Aug-2012	FIX: Vim 7.0/1 need preloading of functions
+"				referenced in Funcrefs.
 "	002	05-May-2012	Separate type definition into
 "				g:SnippetComplete_SnipMateTypes and define
 "				separate completion mapping for snipMate
@@ -31,6 +35,7 @@ set cpo&vim
 
 "- integration -----------------------------------------------------------------
 
+if v:version < 702 | runtime autoload/SnippetCompleteSnipMate.vim | endif  " The Funcref doesn't trigger the autoload in older Vim versions.
 let g:SnippetComplete_SnipMateTypes = {
 \   'snipMate': {
 \       'priority': 100,
