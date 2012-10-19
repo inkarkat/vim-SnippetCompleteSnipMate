@@ -11,6 +11,13 @@
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
 "
 " REVISION	DATE		REMARKS
+"	004	16-Aug-2012	FIX: No completion after e.g. '| or "base|.
+"				snipMate actually uses the /\S\+/ pattern with a
+"				fallback of removing everything up to the first
+"				non-word character of the base. This is
+"				difficult to model. Instead, just allow /\w/ and
+"				-, as all snippet names I've seen and use stick
+"				to them.
 "	003	13-Aug-2012	FIX: Vim 7.0/1 need preloading of functions
 "				referenced in Funcrefs.
 "	002	05-May-2012	Separate type definition into
@@ -39,7 +46,7 @@ if v:version < 702 | runtime autoload/SnippetCompleteSnipMate.vim | endif  " The
 let g:SnippetComplete_SnipMateTypes = {
 \   'snipMate': {
 \       'priority': 100,
-\       'pattern': '\S\+',
+\       'pattern': '[-0-9A-Za-z_]\+',
 \       'generator': function('SnippetCompleteSnipMate#Generator')
 \   }
 \}
