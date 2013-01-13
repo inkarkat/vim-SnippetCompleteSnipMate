@@ -1,8 +1,7 @@
-" SnippetCompleteSnipMate.vim: Integrate snipMate snippets into SnippetComplete
-" plugin.
+" SnippetCompleteSnipMate.vim: Integrate snipMate snippets into SnippetComplete plugin.
 "
 " DEPENDENCIES:
-"   - SnippetComplete plugin
+"   - SnippetComplete plugin (vimscript #2926)
 "   - SnippetCompleteSnipMate.vim autoload script
 "
 " Copyright: (C) 2012 Ingo Karkat
@@ -11,7 +10,7 @@
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
 "
 " REVISION	DATE		REMARKS
-"	004	16-Aug-2012	FIX: No completion after e.g. '| or "base|.
+"   1.00.004	16-Aug-2012	FIX: No completion after e.g. '| or "base|.
 "				snipMate actually uses the /\S\+/ pattern with a
 "				fallback of removing everything up to the first
 "				non-word character of the base. This is
