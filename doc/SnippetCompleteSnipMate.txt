@@ -45,10 +45,10 @@ Snippets appear in the completion popup prefixed with "%N", where N is the
 number of lines that the snippet expands to. Multi-snips appear as "M*N",
 where M is the number of alternatives.
 
-Alternatively, this plugin provides an additional CTRL-X % completion solely
-for snipMate snippets, excluding Vim abbreviations.
-								  *i_CTRL-X_%*
-CTRL-X %		Find matches for snipMate snippets that start with the
+Alternatively, this plugin provides an additional CTRL-X <Tab> completion
+solely for snipMate snippets, excluding Vim abbreviations.
+							      *i_CTRL-X_<Tab>*
+CTRL-X <Tab>		Find matches for snipMate snippets that start with the
 			text in front of the cursor.
 			If no matches were found that way, matches anywhere in
 			the snippet or in the snippet's expanded text will be
@@ -95,7 +95,7 @@ For a permanent configuration, put the following commands into your |vimrc|:
 If you want to use a different mapping, map your keys to the
 <Plug>(SnippetCompleteSnipMate) mapping target _before_ sourcing the script
 (e.g. in your |vimrc|): >
-    imap <C-x>% <Plug>(SnippetCompleteSnipMate)
+    imap <C-x><Tab> <Plug>(SnippetCompleteSnipMate)
 If you don't need the additional mapping, disable it via: >
     imap <Plug>Disable(SnippetCompleteSnipMate) <Plug>(SnippetCompleteSnipMate)
 <
@@ -111,6 +111,10 @@ IDEAS					       *SnippetCompleteSnipMate-ideas*
 ==============================================================================
 HISTORY					     *SnippetCompleteSnipMate-history*
 
+1.01	14-Jan-2013
+CHG: Change default mapping to the more intuitive (for default snipMate
+trigger) i_CTRL-X_<Tab>.
+
 1.00	20-Oct-2012
 First published version.
 
@@ -118,7 +122,7 @@ First published version.
 Started development.
 
 ==============================================================================
-Copyright: (C) 2012 Ingo Karkat
+Copyright: (C) 2012-2013 Ingo Karkat
 The VIM LICENSE applies to this script; see |copyright|.
 
 Maintainer:	Ingo Karkat <ingo@karkat.de>
