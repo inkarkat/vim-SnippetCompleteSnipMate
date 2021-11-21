@@ -9,7 +9,7 @@
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
 "
 " REVISION	DATE		REMARKS
-"	003	17-Oct-2012	Remove truncation of snippet expansion, this is
+"   1.00.003	17-Oct-2012	Remove truncation of snippet expansion, this is
 "				now handled by the SnippetComplete plugin
 "				(version 2.10) itself.
 "	002	23-May-2012	Handle multi-snippets, as are defined for HTML.
