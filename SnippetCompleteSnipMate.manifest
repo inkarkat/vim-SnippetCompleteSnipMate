@@ -1,0 +1,3 @@
+autoload/SnippetCompleteSnipMate.vim
+plugin/SnippetCompleteSnipMate.vim
+doc/SnippetCompleteSnipMate.txt
