@@ -4,12 +4,15 @@
 "   - SnippetComplete plugin (vimscript #2926)
 "   - SnippetCompleteSnipMate.vim autoload script
 "
-" Copyright: (C) 2012 Ingo Karkat
+" Copyright: (C) 2012-2013 Ingo Karkat
 "   The VIM LICENSE applies to this script; see ':help copyright'.
 "
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
 "
 " REVISION	DATE		REMARKS
+"   1.01.005	14-Jan-2013	CHG: Change default mapping to the more
+"				intuitive (for default snipMate trigger)
+"				i_CTRL-X_<Tab>.
 "   1.00.004	16-Aug-2012	FIX: No completion after e.g. '| or "base|.
 "				snipMate actually uses the /\S\+/ pattern with a
 "				fallback of removing everything up to the first
@@ -56,7 +59,7 @@ call extend(g:SnippetComplete_RegisteredTypes, g:SnippetComplete_SnipMateTypes)
 
 inoremap <silent> <Plug>(SnippetCompleteSnipMate) <C-r>=SnippetComplete#PreSnippetCompleteExpr()<CR><C-r>=SnippetComplete#SnippetComplete(g:SnippetComplete_SnipMateTypes)<CR>
 if ! hasmapto('<Plug>(SnippetCompleteSnipMate)', 'i')
-    imap <C-x>% <Plug>(SnippetCompleteSnipMate)
+    imap <C-x><Tab> <Plug>(SnippetCompleteSnipMate)
 endif
 
 let &cpo = s:save_cpo
